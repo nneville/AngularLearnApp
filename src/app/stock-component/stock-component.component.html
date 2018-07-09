@@ -1,0 +1,20 @@
+<p>
+  stock-component works! {{test}}
+  I'm just trying to get it to work!
+</p>
+<table class="table table-stripped">
+  <thead>
+    <td>barcode</td>
+    <td>product</td>
+    <td>quantity</td>
+    <td>expiration date</td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{product.barcode}}</td>
+      <td>{{product.productName}}</td>
+      <td>{{product.quantity}}</td>
+      <td>{{product.expirationDate}}</td>
+    </tr>
+  </tbody>
+</table>
