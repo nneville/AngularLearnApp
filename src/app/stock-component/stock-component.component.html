@@ -1,20 +1,24 @@
-<p>
-  stock-component works! {{test}}
-  I'm just trying to get it to work!
-</p>
+
+<br/>
+Filter <input type='text' [(ngModel)]='listFilter' />
+<br/><br/>
+
 <table class="table table-stripped">
   <thead>
     <td>barcode</td>
     <td>product</td>
     <td>quantity</td>
     <td>expiration date</td>
+    <td>rate</td>
   </thead>
   <tbody>
-    <tr *ngFor="let product of products">
+    <tr *ngFor="let product of filteredProducts">
       <td>{{product.barcode}}</td>
       <td>{{product.productName}}</td>
       <td>{{product.quantity}}</td>
-      <td>{{product.expirationDate}}</td>
+      <td>{{product.expirationDate | convertToDash: '/'}}</td>
+      <td><pm-star [rating]='product.rate' 
+            (ratingClicked)="onRatingClicked($event)"></pm-star></td>
     </tr>
   </tbody>
 </table>
